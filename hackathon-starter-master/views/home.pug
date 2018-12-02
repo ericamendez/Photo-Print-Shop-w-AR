@@ -1,27 +1,30 @@
-extends layout
-
-block content
-  h1 Hackathon Starter
-  p.lead A boilerplate for Node.js web applications.
-  hr
-  .row
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  title
+  link(href='https://fonts.googleapis.com/css?family=Teko' rel='stylesheet')
+  link(rel='stylesheet' href='css/main.scss')
+.container
+  nav
+    input#nav.hidden(type='checkbox')
+    label.nav-btn(for='nav')
+      i
+      i
+      i
+    .logo
+      a(href='#') PHOTOGRAPHY PRINT SHOP
+    .nav-wrapper
+      header
+        section#one
+          a(href='#') Home
+        section#two
+          a(href='#') Artist
+        section#three
+          a(href='#') Search
+        section#four
+          a(href='#') Log In
+        section#five
+          a(href='#') Sign Up
+main
+  img(src='images/main.jpg' alt='')
+script(src='js/main.js' type='text/javascript')

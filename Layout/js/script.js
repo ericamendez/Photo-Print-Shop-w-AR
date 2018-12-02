@@ -75,3 +75,35 @@
   container.onmouseleave = onMouseLeaveHandler;
   container.onmousemove = onMouseMoveHandler;
 })();
+
+// Color Choice
+const noBorder = document.querySelector("#noBorder")
+const white = document.querySelector("#white")
+const black = document.querySelector("#black")
+const color = document.querySelector("#color")
+const img = document.querySelector("img")
+
+let colorChoice = document.querySelector("#colorChoice")
+
+let pickedColor = ""
+
+colorChoice.addEventListener("change", function () {
+  pickedColor = colorChoice.value
+  img.style.border = `20px solid ${pickedColor}`
+})
+
+noBorder.addEventListener("click", function () {
+  img.style.border = "none"
+})
+
+noBorder.addEventListener("click", function () {
+  img.style.border = "none"
+})
+
+white.addEventListener("click", function () {
+  img.style.border = "20px solid white"
+})
+
+black.addEventListener("click", function () {
+  img.style.border = "20px solid black"
+})
