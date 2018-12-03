@@ -14,8 +14,19 @@ exports.getLogin = (req, res) => {
   if (req.user) {
     return res.redirect('/');
   }
-  res.render('account/login', {
+  res.render('login.ejs', {
     title: 'Login'
+  });
+};
+
+// artist!!!
+
+exports.getArtist = (req, res) => {
+  // if (req.user) {
+  //   return res.redirect('/');
+  // }
+  res.render('artist.ejs', {
+    title: 'Artist'
   });
 };
 
@@ -70,7 +81,7 @@ exports.getSignup = (req, res) => {
   if (req.user) {
     return res.redirect('/');
   }
-  res.render('account/signup', {
+  res.render('signup.ejs', {
     title: 'Create Account'
   });
 };
@@ -120,7 +131,7 @@ exports.postSignup = (req, res, next) => {
  * Profile page.
  */
 exports.getAccount = (req, res) => {
-  res.render('account/profile', {
+  res.render('photoghome.ejs', {
     title: 'Account Management'
   });
 };
@@ -235,7 +246,7 @@ exports.getReset = (req, res, next) => {
         req.flash('errors', { msg: 'Password reset token is invalid or has expired.' });
         return res.redirect('/forgot');
       }
-      res.render('account/reset', {
+      res.render('reset.ejs', {
         title: 'Password Reset'
       });
     });
