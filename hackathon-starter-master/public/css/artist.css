@@ -225,9 +225,12 @@ img{
   background-color: rgb(175, 118, 125);
   color: white;
   border: none;
-  font-size: 1.3em;
+  font-size: 1.4em;
   font-weight: bold;
+  padding: 5px 10px;
+  text-decoration: none;
 }
+
 
 /***************************************
 MEDIA QUERIES

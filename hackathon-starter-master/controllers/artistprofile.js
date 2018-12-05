@@ -8,3 +8,12 @@ exports.getArtist = (req, res) => {
         title: 'Artist'
     });
 };
+
+exports.getAr = (req, res) => {
+    // if (req.user) {
+    //   return res.redirect('/');
+    // }
+    res.render('ar.ejs', {
+        title: 'Artist'
+    });
+};

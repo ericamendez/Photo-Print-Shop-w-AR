@@ -131,10 +131,13 @@ app.use((req, res, next) => {
     app.post('/reset/:token', userController.postReset);
     app.get('/signup', userController.getSignup);
     app.post('/signup', userController.postSignup);
+
     app.get('/artist', artistprofileController.getArtist);
+    app.get('/ar', artistprofileController.getAr);
     
     app.get('/contact', contactController.getContact);
     app.post('/contact', contactController.postContact);
+
     app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
     app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
     app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
