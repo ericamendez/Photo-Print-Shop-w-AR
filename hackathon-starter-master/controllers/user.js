@@ -105,7 +105,8 @@ exports.postSignup = (req, res, next) => {
 
   const user = new User({
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    photographer: req.body.photographer
   });
 
   User.findOne({ email: req.body.email }, (err, existingUser) => {
@@ -133,6 +134,16 @@ exports.postSignup = (req, res, next) => {
 exports.getAccount = (req, res) => {
   res.render('photoghome.ejs', {
     title: 'Account Management'
+  });
+};
+
+/**
+ * GET /cart
+ * Cart.
+ */
+exports.getCart = (req, res) => {
+  res.render('cart.ejs', {
+    title: 'Cart'
   });
 };
 

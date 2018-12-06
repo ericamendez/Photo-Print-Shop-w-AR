@@ -5,11 +5,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/log.css">
 
 </head>
 
 <body>
+
+    <header class="container">
+            <nav>
+                <input type="checkbox" id="nav" class="hidden">
+                <label for="nav" class="nav-btn">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </label>
+                <div class="logo">
+                    <a href="/">ARPrint Shop</a>
+                </div>
+                <div class="nav-wrapper">
+                    <ul>
+                        <li><a href="/artist">Artist</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/signup">Sign Up</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                        <li><a href="/cart">Purchase</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
 <div class="pb-2 mt-2 mb-4 border-bottom">
     <h3>Sign up</h3>
@@ -17,21 +40,31 @@
 <form id="signup-form" method="POST">
     <input type="hidden" name="_csrf" value="_csrf"/>
     <div class="form-group row">
-        <label class="col-md-3 col-form-label font-weight-bold text-right" for="email">Email</label>
+        <div class="col-md-7">
+            <input class="form-control" type="radio" name="photographer" placeholder="Photographer"
+                autocomplete="new-password" required="required" value="true"/>
+            <label for="true">Photographer</label>
+            <input class="form-control" type="radio" name="photographer" placeholder="Client"
+                autocomplete="new-account" required="required" value="false"/>
+            <label for="false">Client</label>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="email">Email</label>
         <div class="col-md-7">
             <input class="form-control" type="email" name="email" id="email" placeholder="Email" autofocus="autofocus"
                 autocomplete="email" required="required" />
         </div>
     </div>
     <div class="form-group row">
-        <label class="col-md-3 col-form-label font-weight-bold text-right" for="password">Password</label>
+        <label for="password">Password</label>
         <div class="col-md-7">
             <input class="form-control" type="password" name="password" id="password" placeholder="Password"
                 autocomplete="new-password" required="required" />
         </div>
     </div>
     <div class="form-group row">
-        <label class="col-md-3 col-form-label font-weight-bold text-right" for="confirmPassword">Confirm Password</label>
+        <label for="confirmPassword">Confirm Password</label>
         <div class="col-md-7">
             <input class="form-control" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password"
                 autocomplete="new-password" required="required" />

@@ -134,6 +134,8 @@ app.use((req, res, next) => {
 
     app.get('/artist', artistprofileController.getArtist);
     app.get('/ar', artistprofileController.getAr);
+
+    app.get('/cart', userController.getCart);
     
     app.get('/contact', contactController.getContact);
     app.post('/contact', contactController.postContact);
