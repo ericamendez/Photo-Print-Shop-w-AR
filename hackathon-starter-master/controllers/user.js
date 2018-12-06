@@ -12,7 +12,7 @@ const randomBytesAsync = promisify(crypto.randomBytes);
  */
 exports.getLogin = (req, res) => {
   if (req.user) {
-    return res.redirect('/');
+    return res.redirect('/account');
   }
   res.render('login.ejs', {
     title: 'Login'
@@ -55,7 +55,7 @@ exports.postLogin = (req, res, next) => {
     req.logIn(user, (err) => {
       if (err) { return next(err); }
       req.flash('success', { msg: 'Success! You are logged in.' });
-      res.redirect(req.session.returnTo || '/');
+      res.redirect(req.session.returnTo || '/account');
     });
   })(req, res, next);
 };
@@ -132,7 +132,7 @@ exports.postSignup = (req, res, next) => {
  * Profile page.
  */
 exports.getAccount = (req, res) => {
-  res.render('photoghome.ejs', {
+  res.render('account.ejs', {
     title: 'Account Management'
   });
 };

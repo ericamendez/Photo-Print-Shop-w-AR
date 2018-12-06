@@ -145,6 +145,44 @@ app.use((req, res, next) => {
     app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
     app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
     app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+
+    //---------------------------------------
+    // IMAGE CODE
+    //---------------------------------------
+    var storage = multer.diskStorage({
+      destination: (req, file, cb) => {
+        cb(null, '/uploads')
+      },
+      filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now())
+      }
+    });
+    var photoUpload = multer({
+      storage: storage
+    });
+
+    app.post('/up', photoUpload.single('file-to-upload'), (req, res, next) => {
+
+      insertDocuments(db, '/uploads' + req.file.filename, () => {
+        db.close();
+        res.json({
+          'message': 'File uploaded successfully'
+        });
+      });
+    });
+
+    var insertDocuments = function (db, filePath, callback) {
+      var collection = db.collection('user');
+      collection.insertOne({
+        'imagePath': filePath
+      }, (err, result) => {
+        //assert.equal(err, null);
+        callback(result);
+      });
+    }
+    //---------------------------------------
+    // IMAGE CODE END
+    //---------------------------------------
     
     app.use((req, res, next) => {
       if (req.path === '/api/upload') {

@@ -5,6 +5,12 @@
 body {
     margin: 0;
     font-family: 'Teko', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+main{
+
 }
 
 /***************************************
