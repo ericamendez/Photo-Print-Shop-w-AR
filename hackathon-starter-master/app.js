@@ -113,11 +113,12 @@ app.use((req, res, next) => {
       next();
     });
     app.use('/', express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
+    app.use('/uploads', express.static(path.join(__dirname, 'uploads'), { maxAge: 31557600000 }));
     app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/popper.js/dist/umd'), { maxAge: 31557600000 }));
     app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js'), { maxAge: 31557600000 }));
     app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/jquery/dist'), { maxAge: 31557600000 }));
     app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/webfonts'), { maxAge: 31557600000 }));
-    
+
     /**
      * Primary app routes.
      */
@@ -136,56 +137,21 @@ app.use((req, res, next) => {
     app.get('/ar', artistprofileController.getAr);
 
     app.get('/cart', userController.getCart);
-    
+
     app.get('/contact', contactController.getContact);
     app.post('/contact', contactController.postContact);
 
     app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
-    app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
+    app.post('/account/profile', passportConfig.isAuthenticated, upload.single('myFile'), userController.postUpdateProfile);
+
     app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
     app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
     app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
-    //---------------------------------------
-    // IMAGE CODE
-    //---------------------------------------
-    var storage = multer.diskStorage({
-      destination: (req, file, cb) => {
-        cb(null, '/uploads')
-      },
-      filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now())
-      }
-    });
-    var photoUpload = multer({
-      storage: storage
-    });
 
-    app.post('/up', photoUpload.single('file-to-upload'), (req, res, next) => {
 
-      insertDocuments(db, '/uploads' + req.file.filename, () => {
-        db.close();
-        res.json({
-          'message': 'File uploaded successfully'
-        });
-      });
-    });
-
-    var insertDocuments = function (db, filePath, callback) {
-      var collection = db.collection('user');
-      collection.insertOne({
-        'imagePath': filePath
-      }, (err, result) => {
-        //assert.equal(err, null);
-        callback(result);
-      });
-    }
-    //---------------------------------------
-    // IMAGE CODE END
-    //---------------------------------------
-    
     app.use((req, res, next) => {
-      if (req.path === '/api/upload') {
+      if (req.path === '/account/profile') {
         next();
       } else {
         lusca.csrf()(req, res, next);
