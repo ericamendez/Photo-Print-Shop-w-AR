@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const passport = require('passport');
 const User = require('../models/User');
+const Gallery = require('../models/Gallery');
 
 const randomBytesAsync = promisify(crypto.randomBytes);
 
@@ -102,12 +103,13 @@ exports.postSignup = (req, res, next) => {
     req.flash('errors', errors);
     return res.redirect('/signup');
   }
-
+  
   const user = new User({
     email: req.body.email,
     password: req.body.password,
     photographer: req.body.photographer
   });
+  
 
   User.findOne({ email: user.email }, (err, existingUser) => {
     if (err) { return next(err); }
@@ -115,18 +117,59 @@ exports.postSignup = (req, res, next) => {
       req.flash('errors', { msg: 'Account with that email address already exists.' });
       return res.redirect('/signup');
     }
-    console.log(user)
+
     user.save((err) => {
       if (err) { return next(err); }
       req.logIn(user, (err) => {
         if (err) {
           return next(err);
         }
-        res.redirect('/');
+        res.redirect('/account');
       });
     });
   });
 };
+
+/**
+ * POST add photos
+ * Update profile information.
+ */
+exports.postPhoto = (req, res, next) => {
+req.assert('email', 'Please enter a valid email address.').isEmail();
+req.sanitize('email').normalizeEmail({
+  gmail_remove_dots: false
+});
+
+  const gallery = new Gallery({
+    id: req.user.id,
+    email: req.user.email,
+    photo: req.user.profile.picture,
+    caption: req.body.caption,
+    price: req.body.price,
+    keywords: req.body.keywords
+  });
+
+  User.findOne({
+    email: req.user.email
+  }, (err, existingUser) => {
+    if (err) {
+      return next(err);
+    }
+
+    gallery.save((err) => {
+      if (err) {
+        return next(err);
+      }
+      req.logIn(user, (err) => {
+        if (err) {
+          return next(err);
+        }
+        res.redirect('/account');
+      });
+    });
+  });
+};
+
 
 /**
  * GET /account
@@ -169,12 +212,12 @@ exports.postUpdateProfile = (req, res, next) => {
     user.profile.name = req.body.name || '';
     user.profile.gender = req.body.gender || '';
     user.profile.location = req.body.location || '';
+    user.profile.bio = req.body.bio || '';
     user.profile.website = req.body.website || '';
-    user.profile.picture = req.file.filename || '';
+    user.profile.picture = req.file.filename || req.user.profile.picture;
     user.save((err) => {
 
         if (err) { return next(err); }
-        console.log("WORKS")
       // if (err) {
       //   if (err.code === 11000) {
       //     req.flash('errors', { msg: 'The email address you have entered is already associated with an account.' });
@@ -187,6 +230,8 @@ exports.postUpdateProfile = (req, res, next) => {
     });
   });
 };
+
+
 
 /**
  * POST /account/password
