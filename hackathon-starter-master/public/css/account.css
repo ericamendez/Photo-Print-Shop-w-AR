@@ -4,13 +4,8 @@
 
 body {
     margin: 0;
-    font-family: 'Teko', sans-serif;
     display: grid;
     grid-template-columns: 1fr;
-}
-
-main{
-
 }
 
 /***************************************
@@ -102,10 +97,72 @@ nav ul li a {
 /***************************************
 Main
 *****************************************/
-#edit{
-  display:none;
+main {
+    margin: 1% 4%;
+    display:grid;
+    grid-template-columns: 1fr 2fr;
 }
 
+.edit{
+    display:none;
+}
+
+#infoForm input{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#infoDisplay{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 10px;
+}
+
+
+.userInfo h1 span{
+    background-color: #000;
+    color: white;
+    font-size: 1.5em;
+    padding: 2px 5px;
+}
+
+#userPic{
+    border-radius: 5px;
+}
+
+#editBtn{
+    border: none;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top:10px;
+}
+
+
+.photoUpload{
+    background-color: #000;
+    margin-top: 20px;
+    padding: 5px 5px 20px 5px;
+    color: #fff;
+    text-align: center;
+}
+
+.photoUpload input{
+    width: 90%;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 5px;
+    margin: 10px;
+}
+
+.btnN{
+    text-align: center;
+    font-weight: bold;
+}
+
+#addHead{
+    font-size: 2em;
+    margin:10px;
+}
 
 /***************************************
 MEDIA QUERIES

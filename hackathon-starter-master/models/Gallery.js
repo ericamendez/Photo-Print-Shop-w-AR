@@ -12,6 +12,10 @@ const gallerySchema = new mongoose.Schema({
     timestamps: true
 });
 
+userSchema.methods.photo = function profilePhoto(size) {
+    return "/uploads/" + `${this.photo}`;
+};
+
 const Gallery = mongoose.model('Gallery', gallerySchema);
 
 module.exports = Gallery;

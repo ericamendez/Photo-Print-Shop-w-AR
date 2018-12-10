@@ -215,6 +215,7 @@ exports.postUpdateProfile = (req, res, next) => {
     user.profile.bio = req.body.bio || '';
     user.profile.website = req.body.website || '';
     user.profile.picture = req.file.filename || req.user.profile.picture;
+    
     user.save((err) => {
 
         if (err) { return next(err); }

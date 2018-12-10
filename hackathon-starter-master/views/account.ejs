@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Account</title>
 
     <link rel="stylesheet" href="css/account.css">
 </head>
@@ -34,39 +34,56 @@
     </header>
 
     <main>
-      <% if (user.email) { %>
-      <section class="userInfo">
-        <h1>Welcome <%- user.profile.name %></h1>
-        <img src="<%- user.profilePhoto() %>" class='profile' height='100'>
-        <p>Email: <%- user.email %></p>
-        <p>Location: <%- user.profile.location %></p>
-        <p>Bio: <%- user.profile.bio %></p>
-        <% } %>
-        <button type="button" name="button" id="editBtn">Edit Info</button>
-        <section id="edit" role='form'>
-            <input type='hidden', name='_csrf', value=_csrf>
-            <form id="infoForm" action="/account/profile" enctype="multipart/form-data" method="post">
-                <img src="<%- user.profilePhoto() %>" class='profile' height='100'>
-                <label for="myFile">User Profile Picture: </label>                
-                <input type='file' name='myFile' value='user.profile.picture'>
-                <label for="name">Name: </label>
-                <input type="text" name="name" value="">
-                <label for="location">Location: </label>
-                <input type="text" name="location" value="">
-                <label for="bio">Bio: </label>
-                <input type="text" name="bio" value="">
-                <input class="btnN" id="userPhoto" type="submit" value="Upload">
-            </form>
+        <section>
+            <% if (user.email) { %>
+            <section class="userInfo">
+                <h1>Welcome <span><%- user.profile.name %></span></h1>
+                <section id="infoDisplay">
+                    <section>
+                        <img src="<%- user.profilePhoto() %>" class='profile' id="userPic" height='100'>
+                    </section>
+                    <section>
+                        <p>Location: <%- user.profile.location %></p>
+                        <p>Bio: <%- user.profile.bio %></p>
+                    </section>
+                </section>
+              <% } %>
+            </section>
+            <section class="edit" role='form'>
+                <h1>Edit Info</h1>
+                <input type='hidden', name='_csrf', value=_csrf>
+                <form id="infoForm" action="/account/profile" enctype="multipart/form-data" method="post">
+                    <img src="<%- user.profilePhoto() %>" class='profile' height='100'>
+                    <label for="myFile">User Profile Picture: </label>                
+                    <input type='file' name='myFile' value='user.profile.picture' required="required">
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" required="required" value="">
+                    <label for="location">Location: </label>
+                    <input type="text" name="location" value="" required="required">
+                    <label for="bio">Bio: </label>
+                    <input type="text" name="bio" value="" required="required">
+                    <input class="btnN" id="userPhoto" type="submit" value="Upload">
+                </form>
+            </section>
+            <button type="button" name="button" id="editBtn">Edit</button>
+      
+            <section role='form' class="photoUpload">
+              <h1 id="addHead">Add A Photo</h1>
+              <input type='hidden', name='_csrf', value=_csrf>
+              <form class="add edit" action="/account/photo" role='form' enctype="multipart/form-data"  method="post">
+                    <input type='file' name='photo' value=user.profile.picture>
+                    <input type="text" name="caption" value="" placeholder="Caption">
+                    <input type="text" name="keywords" value="" placeholder="Keywords (portrait, minimal, landscape)">
+                    <input type="number" name="price" placeholder="Price $">
+                    <input class="btnN" id="addPhoto" type="submit" value="Upload">
+              </form>
+            </section>
         </section>
-      </section>
+        <section>
+            
+        </section>
 
-      <section role='form' class="photoUplad">
-        <input type='hidden', name='_csrf', value=_csrf>
-        <form action="#" role='form' enctype="multipart/form-data"  method="post">
-            <input type='file' name='myFile' value=user.profile.picture>
-            <input class="btnN" id="addPhoto" type="submit" value="Upload">
-        </form>
-      </section>
+
     </main>
 
     <script type="text/javascript" src="js/account.js"></script>
