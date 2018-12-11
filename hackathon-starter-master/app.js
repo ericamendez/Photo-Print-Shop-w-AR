@@ -144,6 +144,7 @@ app.use((req, res, next) => {
 
     app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
     app.post('/account/profile', passportConfig.isAuthenticated, upload.single('myFile'), userController.postUpdateProfile);
+    app.post('/account/photo', passportConfig.isAuthenticated, upload.single('photo'), userController.postPhoto);
 
     app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
     app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);

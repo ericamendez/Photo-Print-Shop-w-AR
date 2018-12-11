@@ -143,14 +143,14 @@ req.sanitize('email').normalizeEmail({
   const gallery = new Gallery({
     id: req.user.id,
     email: req.user.email,
-    photo: req.user.profile.picture,
+    photo: req.file.filename,
     caption: req.body.caption,
     price: req.body.price,
     keywords: req.body.keywords
   });
 
-  User.findOne({
-    email: req.user.email
+  Gallery.findOne({
+    email: gallery.email
   }, (err, existingUser) => {
     if (err) {
       return next(err);
@@ -160,15 +160,10 @@ req.sanitize('email').normalizeEmail({
       if (err) {
         return next(err);
       }
-      req.logIn(user, (err) => {
-        if (err) {
-          return next(err);
-        }
         res.redirect('/account');
       });
     });
-  });
-};
+  };
 
 
 /**
@@ -176,9 +171,14 @@ req.sanitize('email').normalizeEmail({
  * Profile page.
  */
 exports.getAccount = (req, res) => {
-  res.render('account.ejs', {
-    title: 'Account Management'
+  Gallery.find({ email: req.user.email}, (err, existingPhoto) => {
+    console.log(existingPhoto)
+    res.render('account.ejs', {
+      photos: existingPhoto,
+      title: 'Account Management'
+    });
   });
+  
 };
 
 /**

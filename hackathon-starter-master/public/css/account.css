@@ -101,6 +101,7 @@ main {
     margin: 1% 4%;
     display:grid;
     grid-template-columns: 1fr 2fr;
+    grid-gap: 40px;
 }
 
 .edit{
@@ -162,6 +163,24 @@ main {
 #addHead{
     font-size: 2em;
     margin:10px;
+}
+
+.gallDisplay{
+    -moz-column-count:2;
+
+    -moz-column-width: 30%;
+    -webkit-column-count:2;
+
+    -webkit-column-width: 30%;
+    column-count: 2;
+
+    column-width: 30%;
+}
+
+.gallDisplay img{
+    width: 100%;
+    height: auto;
+    margin-bottom:10px;
 }
 
 /***************************************
