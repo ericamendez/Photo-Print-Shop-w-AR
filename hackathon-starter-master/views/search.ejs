@@ -36,10 +36,11 @@
     <main>
         <% for(var i=0; i < user.length; i++) {%>
             <% if (user[i].profile.picture !== "") {%>
-            <section>
+    <a class="removeLink" href="/artist?userId=<%- user[i]._id %>">
+    <section>
                 <h2><%- user[i].profile.name %></h2>
                 <img src="uploads/<%- user[i].profile.picture %>">
-            </section>
+            </section></a>
             <% } %>
         <% } %>
     </main>

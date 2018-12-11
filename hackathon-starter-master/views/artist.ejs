@@ -28,10 +28,23 @@
                 <li><a href="/cart">Purchase</a></li>
             </ul>
         </div>
+
+        
     </nav>
 </header>
-<section></section>
+<main>
+    <section>
+        <h1><%- user.profile.name %></h1>
+    </section>
 
+    <section id="photoCon">
+        <% for(var i=0; i < photos.length; i++) {%>
+            <a href="/photo?photoId=<%- photos[i]._id %>">
+                <img src="uploads/<%- photos[i].photo %>">
+            </a>
+        <% } %>
+    </section>
+</main>
 <script src="js/artist.js" type="text/javascript"></script>
 </body>
 </html>

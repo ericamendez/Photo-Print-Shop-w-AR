@@ -111,6 +111,10 @@ Layout
   font-weight: bold;
 }
 
+.removeLink {
+  text-decoration: none;
+}
+
 /***************************************
 content
 *****************************************/

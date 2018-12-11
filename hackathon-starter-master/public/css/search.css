@@ -103,6 +103,11 @@ main img{
     width: 200px;
 }
 
+.removeLink{
+    text-decoration: none;
+    color: #000;
+}
+
 
 
 /***************************************

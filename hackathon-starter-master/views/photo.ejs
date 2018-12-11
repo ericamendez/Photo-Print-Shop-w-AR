@@ -38,8 +38,10 @@
 
         <main>
             <section>
-                <h1><span id="photog">ERICA MENDEZ</span></h1>
-                <h4 id="location">Boston, MA</h4>
+                <a class="removeLink" href="/artist?userId=<%- user[0]._id %>">
+                <h1><span id="photog"><%- user[0].profile.name %></span></h1>
+                </a>
+                <h4 id="location"><%- user[0].profile.location %></h4>
                 <p id="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                     ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -53,14 +55,10 @@
             <section>
                 <div id="container">
                     <div id="inner">
-                        <img src="images/DSF5_656.jpg" alt="">
+                        <img src="uploads/<%- photo.photo %>" alt="">
                     </div>
                 </div>
 
-                <section class="btnCon">
-                    <button type="button" name="button">PREVIOUS</button>
-                    <button type="button" name="button">NEXT</button>
-                </section>
             </section>
 
         </main>
