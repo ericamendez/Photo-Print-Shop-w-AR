@@ -126,7 +126,7 @@ Gallery
   height: 100vh;
   display: flex;
   /*     max-width: 900px; */
-  max-height: 550px;
+  max-height: 92vh;
   overflow: hidden;
   position: relative;
 }
@@ -228,7 +228,7 @@ Gallery
 }
 
 .carousel-item--1 .carousel-item__image {
-  background-image: url('https://images.pexels.com/photos/991012/pexels-photo-991012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-image: url('/images/main.jpg');
 }
 
 
