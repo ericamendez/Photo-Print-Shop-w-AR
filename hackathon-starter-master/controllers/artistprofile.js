@@ -2,9 +2,10 @@ const Gallery = require('../models/Gallery');
 const User = require('../models/User');
 
 exports.getSearch = (req, res) => {
-    Gallery.find({ }, (err, existingPhoto) => {
-    console.log(existingPhoto)
+    User.find((err, artists) => {
+    console.log(artists)
     res.render('search.ejs', {
+        user: artists,
         title: 'Search Artist'
     });
     });

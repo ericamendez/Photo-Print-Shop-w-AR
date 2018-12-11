@@ -23,7 +23,7 @@
             </div>
             <div class="nav-wrapper">
                 <ul>
-                    <li><a href="/artist">Search Artist</a></li>
+                    <li><a href="/search">Search Artist</a></li>
                     <li><a href="/login">Login</a></li>
                     <li><a href="/signup">Sign Up</a></li>
                     <li><a href="/logout">Logout</a></li>
@@ -32,11 +32,15 @@
             </div>
         </nav>
     </header>
+
     <main>
-        <% for(var i=0; i < users.length; i++) {%>
+        <% for(var i=0; i < user.length; i++) {%>
+            <% if (user[i].profile.picture !== "") {%>
             <section>
-                <img src="uploads/<%- users[i].photo %>">
+                <h2><%- user[i].profile.name %></h2>
+                <img src="uploads/<%- user[i].profile.picture %>">
             </section>
+            <% } %>
         <% } %>
     </main>
 
