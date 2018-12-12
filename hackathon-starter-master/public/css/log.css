@@ -5,6 +5,8 @@
 body {
     margin: 0;
     font-family: 'Teko', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 /***************************************
@@ -96,8 +98,21 @@ nav ul li a {
 /***************************************
 Main
 *****************************************/
+main{
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    border: 20px solid black;
+    height: 90vh;
 
+}
 
+h1{
+    margin: 0 0 20px 0;
+    background-color: #000;
+    color: #fff;
+    padding-bottom: 20px;
+}
 
 
 /***************************************

@@ -183,6 +183,11 @@ main {
     margin-bottom:10px;
 }
 
+.removeLink {
+    text-decoration: none;
+    color: #000;
+}
+
 /***************************************
 MEDIA QUERIES
 *****************************************/

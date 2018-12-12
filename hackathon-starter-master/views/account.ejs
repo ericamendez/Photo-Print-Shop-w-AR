@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Account</title>
+    <title>ARPrint Account</title>
 
     <link rel="stylesheet" href="css/account.css">
 </head>
@@ -19,7 +19,7 @@
                 <i></i>
             </label>
             <div class="logo">
-                <a href="/">ARPrint Shop</a>
+                <a href="/">ARPrint</a>
             </div>
             <div class="nav-wrapper">
                 <ul>
@@ -37,7 +37,11 @@
         <section>
             <% if (user.email) { %>
             <section class="userInfo">
-                <h1>Welcome <span><%- user.profile.name %></span></h1>
+                <h1>Welcome 
+                    <a class="removeLink" href="/artist?userId=<%- user._id %>">
+                    <span><%- user.profile.name %></span>
+                    </a>
+                </h1>
                 <section id="infoDisplay">
                     <section>
                         <img src="<%- user.profilePhoto() %>" class='profile' id="userPic" height='100'>

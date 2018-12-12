@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign Up</title>
+    <title>ARPrint Sign Up</title>
     <link rel="stylesheet" href="css/log.css">
 
 </head>
@@ -20,7 +20,7 @@
                     <i></i>
                 </label>
                 <div class="logo">
-                    <a href="/">ARPrint Shop</a>
+                    <a href="/">ARPrint</a>
                 </div>
                 <div class="nav-wrapper">
                     <ul>
@@ -34,47 +34,40 @@
             </nav>
         </header>
 
-<div class="pb-2 mt-2 mb-4 border-bottom">
-    <h3>Sign up</h3>
-</div>
-<form id="signup-form" method="POST">
-    <input type="hidden" name="_csrf" value="_csrf"/>
-    <div class="form-group row">
-        <div class="col-md-7">
-            <input class="form-control" type="radio" name="photographer" placeholder="Photographer"
-                autocomplete="new-password" required="required" value="true"/>
-            <label for="true">Photographer</label>
-            <input class="form-control" type="radio" name="photographer" placeholder="Client"
-                autocomplete="new-account" required="required" value="false"/>
-            <label for="false">Client</label>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="email">Email</label>
-        <div class="col-md-7">
-            <input class="form-control" type="email" name="email" id="email" placeholder="Email" autofocus="autofocus"
-                autocomplete="email" required="required" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="password">Password</label>
-        <div class="col-md-7">
-            <input class="form-control" type="password" name="password" id="password" placeholder="Password"
-                autocomplete="new-password" required="required" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="confirmPassword">Confirm Password</label>
-        <div class="col-md-7">
-            <input class="form-control" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password"
-                autocomplete="new-password" required="required" />
-        </div>
-    </div>
-    <div class="form-group offset-sm-3 col-md-7 pl-2">
-        <button class="btn btn-success" type="submit"><i class="fas fa-user-plus fa-sm"></i>Signup</button>
-    </div>
-</form>
-</form>
+
+    <main>
+            <section>
+                <h1>Photographer Sign up</h1>
+            </section>
+            <form id="signup-form" method="POST">
+                <input type="hidden" name="_csrf" value="_csrf"/>
+                
+                <div class="form-group row">
+                    <label for="email">Email</label>
+                    <div class="col-md-7">
+                        <input class="form-control" type="email" name="email" id="email" placeholder="Email" autofocus="autofocus"
+                            autocomplete="email" required="required" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="password">Password</label>
+                    <div class="col-md-7">
+                        <input class="form-control" type="password" name="password" id="password" placeholder="Password"
+                            autocomplete="new-password" required="required" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="col-md-7">
+                        <input class="form-control" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password"
+                            autocomplete="new-password" required="required" />
+                    </div>
+                </div>
+                <div class="form-group offset-sm-3 col-md-7 pl-2">
+                    <button class="btn btn-success" type="submit"><i class="fas fa-user-plus fa-sm"></i>Signup</button>
+                </div>
+            </form>
+    </main>
    
 </body>
 

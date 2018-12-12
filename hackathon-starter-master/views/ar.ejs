@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>8th Wall Web: A-FRAME</title>
+    <title>ARPrint</title>
 
     <script>window.navigator.getVRDisplays = function() { return Promise && Promise.resolve([{ displayName: 'noVRDisplay' }]) }</script>
     <script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
@@ -81,12 +81,12 @@
         <a-light type="ambient" intensity="1"></a-light>
         
         <a-assets>
-            <img id="my-image" src="../uploads/<%- photo.photo %>">
+            <img id="my-image" src="../uploads/<%- photo.photo %>.jpg">
         </a-assets>
 
         <a-image position="0 6 0" src="#my-image" width="6" height="4"></a-image>
 
-        <a-image position="0 6 0" src="../uploads/<%- photo.photo %>" width="6" height="4"></a-image>
+        <a-image position="0 6 0" src="../uploads/jpg/<%- photo.photo %>.jpg" width="6" height="4"></a-image>
 
     </a-scene>
 </body>
