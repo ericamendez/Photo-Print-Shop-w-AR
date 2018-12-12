@@ -27,7 +27,7 @@ exports.getArtist = (req, res) => {
 exports.getPhoto = (req, res) => {
     Gallery.findById(req.query.photoId, (err, reqPhoto) => {
         User.find({ email: reqPhoto.email}, (err, artist) => {
-            console.log(artist)
+            
             res.render('photo.ejs', {
                 user: artist,
                 photo: reqPhoto,
@@ -38,9 +38,12 @@ exports.getPhoto = (req, res) => {
 };
 
 exports.getAr = (req, res) => {
-   
-    res.render('ar.ejs', {
-        title: 'Augmented Reality'
-    });
+    Gallery.findById(req.query.photoId, (err, reqPhoto) => {
+        console.log(reqPhoto.photo)
+        res.render('ar.ejs', {
+            photo: reqPhoto,
+            title: 'Augmented Reality'
+        });
+    })
 };
 

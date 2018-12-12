@@ -115,7 +115,27 @@ main img{
     width: 100%;
 }
 
+.userInfo{
+    text-align: center;
+    margin: 20px 0 30px 0;
+    padding: 1% 5%;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+}
 
+#userH{
+    background-color: #000;
+    color: #fff;
+    padding: 3px 15px;
+}
+
+.userInfo img{
+    width: 100px;
+    border-radius: 100%;
+}
+
+#loc{
+    width: 18px;
+}
 
 /***************************************
 MEDIA QUERIES
@@ -225,4 +245,20 @@ MEDIA QUERIES
 
 
 /* mobile */
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
+    #photoCon {
+        -moz-column-count: 2;
+
+        -moz-column-width: 40%;
+        -webkit-column-count: 2;
+
+        -webkit-column-width: 40%;
+        column-count: 2;
+
+        column-width: 40%;
+    }
+
+    .userInfo {
+        margin: 20px 0 30px 0;
+    }
+}

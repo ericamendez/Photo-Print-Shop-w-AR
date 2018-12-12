@@ -216,7 +216,7 @@ main{
 
 img{
 	max-width:100%;
-  height:auto;
+  max-height:700px;
   border: 20px solid white;
 }
 
@@ -360,5 +360,14 @@ MEDIA QUERIES
   main {
     display: grid;
     grid-template-columns: 1fr;
+  }
+}
+
+/* mobile */
+@media screen and (min-width: 1440px) {
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }

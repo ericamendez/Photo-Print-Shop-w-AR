@@ -33,8 +33,11 @@
     </nav>
 </header>
 <main>
-    <section>
-        <h1><%- user.profile.name %></h1>
+    <section class="userInfo">
+        <h1><span id="userH"><%- user.profile.name %></span></h1>
+        <img src="uploads/<%- user.profile.picture %>" alt="">
+        <h3><img id="loc" src="images/location.png"> <%- user.profile.location %></h3>
+        <p><%- user.profile.bio %></p>
     </section>
 
     <section id="photoCon">
