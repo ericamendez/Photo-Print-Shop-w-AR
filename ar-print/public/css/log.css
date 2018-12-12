@@ -115,6 +115,44 @@ h1{
 }
 
 
+
+form div{
+    margin: 0 30%;
+}
+
+form label{
+    background: rgb(175, 118, 125);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 3px 10px;
+}
+
+form input{
+    font-size: 1.3em;
+    border: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+.col-md-7{
+    margin:20px;
+}
+
+form button{
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.3em;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+form button:hover{
+    background: rgb(175, 118, 125);
+}
+
+
 /***************************************
 MEDIA QUERIES
 *****************************************/
