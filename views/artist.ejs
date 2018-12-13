@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ARPrint Artist</title>
+    <link rel="stylesheet" href="css/artist.css">
+</head>
+<body>
+<header class="container">
+    <nav>
+        <input type="checkbox" id="nav" class="hidden">
+        <label for="nav" class="nav-btn">
+            <i></i>
+            <i></i>
+            <i></i>
+        </label>
+        <div class="logo">
+            <a href="/">ARPrint</a>
+        </div>
+        <div class="nav-wrapper">
+            <ul>
+                <li><a href="/search">Search Artist</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <li><a href="/cart">Purchase</a></li>
+            </ul>
+        </div>
+
+        
+    </nav>
+</header>
+<main>
+    <section class="userInfo">
+        <h1><span id="userH"><%- user.profile.name %></span></h1>
+        <img src="uploads/<%- user.profile.picture %>" alt="">
+        <h3><img id="loc" src="images/location.png"> <%- user.profile.location %></h3>
+        <p><%- user.profile.bio %></p>
+    </section>
+
+    <section id="photoCon">
+        <% for(var i=0; i < photos.length; i++) {%>
+            <a href="/photo?photoId=<%- photos[i]._id %>">
+                <img src="uploads/<%- photos[i].photo %>">
+            </a>
+        <% } %>
+    </section>
+</main>
+<script src="js/artist.js" type="text/javascript"></script>
+</body>
+</html>

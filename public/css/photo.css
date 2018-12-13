@@ -1,0 +1,380 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin:0;
+  display: block;
+}
+
+/***************************************
+Header
+*****************************************/
+
+nav {
+  padding: 14px;
+}
+
+.logo {
+  float: left;
+  padding: 0 8px;
+  margin-top: 8px;
+}
+
+.logo a {
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0px;
+  text-decoration: none;
+}
+
+nav ul {
+  float: right;
+}
+
+nav ul li {
+  display: inline-block;
+  float: left;
+}
+
+nav ul li:not(:first-child) {
+  margin-left: 48px;
+}
+
+nav ul li:last-child {
+  margin-right: 24px;
+}
+
+nav ul li a {
+  display: inline-block;
+  outline: none;
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+}
+
+#nav:checked+.nav-btn {
+  transform: rotate(45deg);
+}
+
+#nav:checked+.nav-btn i {
+  background: #000;
+  transition: transform 0.2s ease;
+}
+
+#nav:checked+.nav-btn i:nth-child(1) {
+  transform: translateY(6px) rotate(180deg);
+}
+
+#nav:checked+.nav-btn i:nth-child(2) {
+  opacity: 0;
+}
+
+#nav:checked+.nav-btn i:nth-child(3) {
+  transform: translateY(-6px) rotate(90deg);
+}
+
+#nav:checked~.nav-wrapper {
+  z-index: 9990;
+  opacity: 1;
+}
+
+#nav:checked~.nav-wrapper ul li a {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hidden {
+  display: none;
+}
+
+/***************************************
+Layout
+*****************************************/
+.btnCon{
+  text-align: center;
+  margin-top: 30px;
+  height: 100px;
+}
+
+#photog{
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 2em;
+  padding: 0 15px 0 5px;
+  font-weight: bold;
+}
+
+.removeLink {
+  text-decoration: none;
+}
+
+#buy{
+  background-color: rgb(175, 118, 125);
+  color: #fff;
+  font-weight: bold;
+}
+
+/***************************************
+content
+*****************************************/
+h4{
+  margin:0;
+}
+
+.btnCon button{
+  background-color: white;
+  border: none;
+  font-weight: bold;
+}
+.btnCon button:hover{
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 2em;
+  padding: 0 15px 0 5px;
+  font-weight: bold;
+}
+
+.frameOptions{
+    padding: 0 0 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.border button{
+  border: none;
+  padding: 5px 10px;
+}
+
+#noBorder{
+background-color: gray;
+color: white;
+} 
+
+#white{
+background-color: white;
+}
+
+#black{
+background-color: black;
+color: white;
+} 
+
+#color{
+background-color: rgb(41, 64, 18);
+color: white;
+}
+
+/***************************************
+TEST
+*****************************************/
+
+body {
+  /* Full screen width and height */
+  width: 100vw;
+  min-height: 100vh;
+  
+  /* Centers the container in the middle of the screen */
+  display: grid;
+  grid-template-rows: 1fr 7fr;
+
+  
+  background-color: white;
+}
+
+.space{
+  /* Centers the container in the middle of the screen */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+main{
+  padding: 0 0 0 5%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+#container {
+  perspective: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#inner {
+  max-width:70%;
+	height:auto;
+  background-color: rgba(0, 0, 0, .1);
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+
+img{
+	max-width:100%;
+  max-height:700px;
+  border: 20px solid white;
+}
+
+.arCon{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#ar{
+  background-color: rgb(175, 118, 125);
+  color: white;
+  border: none;
+  font-size: 1.4em;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+
+
+/***************************************
+MEDIA QUERIES
+*****************************************/
+
+/* tablet */
+@media screen and (max-width: 864px) {
+  .logo {
+    padding: 0;
+  }
+
+  .nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #fff;
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+
+  .nav-wrapper ul {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+  }
+
+  .nav-wrapper ul li {
+    display: block;
+    float: none;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+
+  .nav-wrapper ul li:nth-child(1) a {
+    transition-delay: 0.2s;
+  }
+
+  .nav-wrapper ul li:nth-child(2) a {
+    transition-delay: 0.3s;
+  }
+
+  .nav-wrapper ul li:nth-child(3) a {
+    transition-delay: 0.4s;
+  }
+
+  .nav-wrapper ul li:nth-child(4) a {
+    transition-delay: 0.5s;
+  }
+
+  .nav-wrapper ul li:nth-child(5) a {
+    transition-delay: 0.6s;
+  }
+
+  .nav-wrapper ul li:not(:first-child) {
+    margin-left: 0;
+  }
+
+  .nav-wrapper ul li a {
+    padding: 10px 24px;
+    opacity: 0;
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    transform: translateX(-20px);
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    display: block;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 9999;
+    border-radius: 50%;
+  }
+
+  .nav-btn i {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #000;
+    border-radius: 2px;
+    margin-left: 14px;
+  }
+
+  .nav-btn i:nth-child(1) {
+    margin-top: 16px;
+  }
+
+  .nav-btn i:nth-child(2) {
+    margin-top: 4px;
+    opacity: 1;
+  }
+
+  .nav-btn i:nth-child(3) {
+    margin-top: 4px;
+  }
+  
+  main {
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .frameOptions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* mobile */
+@media screen and (max-width: 767px){
+  
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* mobile */
+@media screen and (min-width: 2000px) {
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

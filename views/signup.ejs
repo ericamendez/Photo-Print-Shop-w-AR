@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ARPrint Sign Up</title>
+    <link rel="stylesheet" href="css/log.css">
+
+</head>
+
+<body>
+
+    <header class="container">
+            <nav>
+                <input type="checkbox" id="nav" class="hidden">
+                <label for="nav" class="nav-btn">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </label>
+                <div class="logo">
+                    <a href="/">ARPrint</a>
+                </div>
+                <div class="nav-wrapper">
+                    <ul>
+                        <li><a href="/search">Search Artist</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/signup">Sign Up</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                        <li><a href="/cart">Purchase</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+
+    <main>
+            <section>
+                <h1>Photographer Sign up</h1>
+            </section>
+            <form id="signup-form" method="POST">
+                <input type="hidden" name="_csrf" value="_csrf"/>
+                
+                <div class="form-group row">
+                    <label for="email">Email</label>
+                    <div class="col-md-7">
+                        <input class="form-control" type="email" name="email" id="email" placeholder="Email" autofocus="autofocus"
+                            autocomplete="email" required="required" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="password">Password</label>
+                    <div class="col-md-7">
+                        <input class="form-control" type="password" name="password" id="password" placeholder="Password"
+                            autocomplete="new-password" required="required" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="col-md-7">
+                        <input class="form-control" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password"
+                            autocomplete="new-password" required="required" />
+                    </div>
+                </div>
+                <div class="form-group offset-sm-3 col-md-7 pl-2">
+                    <button class="btn btn-success" type="submit"><i class="fas fa-user-plus fa-sm"></i>Signup</button>
+                </div>
+            </form>
+    </main>
+   
+</body>
+
+</html>
