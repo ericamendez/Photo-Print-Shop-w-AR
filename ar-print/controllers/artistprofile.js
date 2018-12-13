@@ -4,10 +4,13 @@ const User = require('../models/User');
 exports.getSearch = (req, res) => {
     User.find((err, artists) => {
     // console.log(artists)
-    res.render('search.ejs', {
-        user: artists,
-        title: 'Search Artist'
-    });
+        Gallery.find((err, photos) => {
+            res.render('search.ejs', {
+                photo: photos,
+                user: artists,
+                title: 'Search Artist'
+            });
+        });
     });
 };
 

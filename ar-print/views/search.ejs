@@ -33,14 +33,26 @@
         </nav>
     </header>
 
+    <section class="intro">
+        <h1>Find Artist</h1>
+    </section>
     <main>
         <% for(var i=0; i < user.length; i++) {%>
             <% if (user[i].profile.picture !== "") {%>
-    <a class="removeLink" href="/artist?userId=<%- user[i]._id %>">
-    <section>
-                <h2><%- user[i].profile.name %></h2>
-                <img src="uploads/<%- user[i].profile.picture %>">
-            </section></a>
+            <a class="removeLink" href="/artist?userId=<%- user[i]._id %>">
+            <section class="align">
+                <section>
+                    <h2><span id="nameH"><%- user[i].profile.name %></span></h2>
+                    <section id="userImgCon">
+                        <img src="uploads/<%- user[i].profile.picture %>">
+                    </section>
+                </section>
+                <section>
+                    <h2><img id="loc" src="images/location.png"> <%- user[i].profile.location %></h2>
+                    <p><%- user[i].profile.bio %></p>
+                </section>
+            </section>
+            </a>
             <% } %>
         <% } %>
     </main>

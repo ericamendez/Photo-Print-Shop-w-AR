@@ -94,58 +94,14 @@ nav ul li a {
 Main
 *****************************************/
 main{
-    margin: 10px 4%;
+    margin: 1% 4%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     text-align: center;
-    grid-gap: 40px;
-}
-
-.intro{
-    margin: 3% 4%;
-    text-align: center;
-}
-
-.intro h1{
-    font-size: 2em;
-    background-color: #000;
-    color: #fff;
-    padding: 5px 0;
-}
-
-#loc{
-    width: 20px;
-}
-
-.align{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 10px;
-}
-
-#nameH{
-    background-color: black;
-    color: white;
-    padding: 0 15px 0 5px;
-    font-weight: bold;
-}
-
-#userImgCon{
-    width: 200px;
-    height: 200px;
-    overflow:hidden;
-    /*hide bounds of image */
-    
-    padding: 10px;
-    border: 5px solid black;
-    box-shadow: 2px 2px 40px rgba(0, 0, 0, 0.2);
 }
 
 main img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 0;
+    width: 200px;
 }
 
 .removeLink{
@@ -259,19 +215,8 @@ MEDIA QUERIES
     .nav-btn i:nth-child(3) {
         margin-top: 4px;
     }
-    main {
-        grid-template-columns: 1fr;
-    }
 }
 
 
 /* mobile */
-@media screen and (max-width: 767px) {
-
-}
-
-@media screen and (min-width: 1600px) {
-    main {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
+@media screen and (max-width: 767px) {}
