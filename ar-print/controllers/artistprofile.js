@@ -14,6 +14,19 @@ exports.getSearch = (req, res) => {
     });
 };
 
+exports.getRandom = (req, res) => {
+    Gallery.find((err, photos) => {
+        // console.log(artists)
+        User.find((err, artists) => {
+            res.render('random.ejs', {
+                photo: photos,
+                user: artists,
+                title: 'Search Photos'
+            });
+        });
+    });
+};
+
 exports.getArtist = (req, res) => {
     User.findById(req.query.userId, (err, artist) => {
     // User.find({_id: req.query.userId}, (err, artist) => {

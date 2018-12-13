@@ -42,11 +42,9 @@
                 <h1><span id="photog"><%- user[0].profile.name %></span></h1>
                 </a>
                 <h4 id="location"><%- user[0].profile.location %></h4>
-                <p id="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p id="description"><%- user[0].profile.bio %></p>
+                <p>Photo Description: <%- photo.caption %></p>
+                <p>Price: $<%- photo.price %></p>
                 <section class="arCon">
                     <a id="ar" href="/ar?photoId=<%- photo._id %>">View in AR</a>
                 </section>
@@ -72,7 +70,19 @@
             </section>
             <section class="border">
                 <h5>Choose Size</h5>
-
+                <button>4x6</button>
+                <button>5x7</button>
+                <button>8x10</button>
+            </section>
+            <section class="border">
+                <h5>Choose texture</h5>
+                <button>Matte</button>
+                <button>Glossy</button>
+                <button>Uncoated</button>
+            </section>
+            <section class="border">
+                <h5>Add to Cart</h5>
+                <button id="buy">Buy</button>
             </section>
 
         </section>
