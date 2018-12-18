@@ -1,5 +1,5 @@
 # ARPrint 
-Photography Print Shop with Augmented Reality. Fullstack application that allows photographers to sign up, log in, and upload their photography to sell their art. Clients can go to the website to buy the photographers prints. On the photographers public profile, clients have options of adding borders and print size. Clients can also see the photographer's prints live  in any room they want using web based augmented reality.
+Photography Print Shop with Augmented Reality. Fullstack application that allows photographers to sign up, log in, and upload their photography to sell their prints. On the photographers public profile, clients have options buying the photographers prints, adding borders, and choosing print size. Clients can also see the photographer's prints live  in any room using web based augmented reality to see if the print fits the room the print will be bought for.
 
 ## Home-page
 ![alt text](public/images/home.png)
